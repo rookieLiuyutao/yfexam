@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yf.exam.modules.paper.mapper.PaperMapper">
+<mapper namespace="com.yt.exam.modules.paper.mapper.PaperMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yf.exam.modules.paper.entity.Paper">
+    <resultMap id="BaseResultMap" type="com.yt.exam.modules.paper.entity.Paper">
         <id column="id" property="id" />
         <result column="user_id" property="userId" />
         <result column="depart_id" property="departId" />
@@ -31,7 +31,7 @@
 
     <resultMap id="ListResultMap"
                extends="BaseResultMap"
-               type="com.yf.exam.modules.paper.dto.response.PaperListRespDTO">
+               type="com.yt.exam.modules.paper.dto.response.PaperListRespDTO">
         <result column="real_name" property="realName" />
     </resultMap>
 

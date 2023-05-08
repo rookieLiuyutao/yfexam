@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yf.exam.modules.qu.mapper.QuMapper">
+<mapper namespace="com.yt.exam.modules.qu.mapper.QuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yf.exam.modules.qu.entity.Qu">
+    <resultMap id="BaseResultMap" type="com.yt.exam.modules.qu.entity.Qu">
         <id column="id" property="id" />
         <result column="qu_type" property="quType" />
         <result column="level" property="level" />
@@ -36,7 +36,7 @@
     </select>
 
 
-    <resultMap id="ExportResultMap" type="com.yf.exam.modules.qu.dto.export.QuExportDTO">
+    <resultMap id="ExportResultMap" type="com.yt.exam.modules.qu.dto.export.QuExportDTO">
         <id column="q_id" property="qId"  />
         <result column="qu_type" property="quType"  />
         <result column="q_content" property="qContent"  />

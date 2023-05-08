@@ -47,6 +47,12 @@
               <el-tag v-for="item in paperData.judgeList" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
             </el-row>
           </div>
+<!--          <div v-if="paperData.judgeList!==undefined && paperData.judgeList.length > 0">-->
+<!--            <p class="card-title">填空题</p>-->
+<!--            <el-row :gutter="24" class="card-line">-->
+<!--              <el-tag v-for="item in paperData.fullList" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>-->
+<!--            </el-row>-->
+<!--          </div>-->
 
         </el-card>
 
@@ -132,7 +138,8 @@ export default {
         leftSeconds: 99999,
         radioList: [],
         multiList: [],
-        judgeList: []
+        judgeList: [],
+        fullList: [],
       },
       // 单选选定值
       radioValue: '',

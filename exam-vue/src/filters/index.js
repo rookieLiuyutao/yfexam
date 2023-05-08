@@ -26,7 +26,9 @@ export function quTypeFilter(value) {
   const map = {
     '1': '单选题',
     '2': '多选题',
-    '3': '判断题'
+    '3': '判断题',
+    '4': '填空题',
+    '5': '编程题'
   }
   return map[value]
 }

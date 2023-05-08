@@ -432,7 +432,7 @@ CREATE TABLE `el_repo` (
 -- Records of el_repo
 -- ----------------------------
 BEGIN;
-INSERT INTO `el_repo` (`id`, `code`, `title`, `remark`, `create_time`, `update_time`) VALUES ('1587622451624120321', '', '【云帆】演示题库', '【云帆】演示题库', '2022-11-02 09:47:44', '2022-11-02 09:47:44');
+INSERT INTO `el_repo` (`id`, `code`, `title`, `remark`, `create_time`, `update_time`) VALUES ('1587622451624120321', '', '演示题库', '演示题库', '2022-11-02 09:47:44', '2022-11-02 09:47:44');
 COMMIT;
 
 -- ----------------------------

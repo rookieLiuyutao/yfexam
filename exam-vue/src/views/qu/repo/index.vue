@@ -45,6 +45,17 @@
         align="center"
       />
 
+<!--      <el-table-column-->
+<!--        label="填空题数量"-->
+<!--        prop="fullCount"-->
+<!--        align="center"-->
+<!--      />-->
+<!--      <el-table-column-->
+<!--        label="编程题数量"-->
+<!--        prop="codeCount"-->
+<!--        align="center"-->
+<!--      />-->
+
       <el-table-column
         label="创建时间"
         align="center"

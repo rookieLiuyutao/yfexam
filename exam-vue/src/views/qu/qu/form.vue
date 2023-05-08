@@ -120,6 +120,49 @@
 
       </div>
 
+      <div v-if="postForm.quType===4" class="filter-container" style="margin-top: 25px">
+
+        <el-button class="filter-item" type="primary" icon="el-icon-plus" size="small" plain @click="handleAdd">
+          添加
+        </el-button>
+
+        <el-table
+          :data="postForm.answerList"
+          :border="true"
+          style="width: 100%;"
+        >
+
+
+          <el-table-column
+            label="答案内容"
+          >
+            <template slot-scope="scope">
+              <el-input v-model="scope.row.content" type="textarea" />
+            </template>
+          </el-table-column>
+
+          <el-table-column
+            label="答案解析"
+          >
+            <template slot-scope="scope">
+              <el-input v-model="scope.row.analysis" type="textarea" />
+            </template>
+          </el-table-column>
+
+          <el-table-column
+            label="操作"
+            align="center"
+            width="100px"
+          >
+            <template slot-scope="scope">
+              <el-button type="danger" icon="el-icon-delete" circle @click="removeItem(scope.$index)" />
+            </template>
+          </el-table-column>
+
+        </el-table>
+
+      </div>
+
       <div style="margin-top: 20px">
         <el-button type="primary" @click="submitForm">保存</el-button>
         <el-button type="info" @click="onCancel">返回</el-button>
@@ -159,6 +202,14 @@ export default {
       {
         value: 3,
         label: '判断题'
+      },
+        {
+        value: 4,
+        label: '填空题'
+      },
+        {
+        value: 5,
+        label: '编程题'
       }
       ],
 
@@ -208,6 +259,10 @@ export default {
         this.postForm.answerList.push({ isRight: false, content: '', analysis: '' })
         this.postForm.answerList.push({ isRight: false, content: '', analysis: '' })
       }
+      if (v === 4) {
+        this.postForm.answerList.push({ isRight: false, content: '', analysis: '' })
+
+      }
     },
 
     // 添加子项
@@ -235,38 +290,44 @@ export default {
         }
       })
 
-      if (this.postForm.quType === 1) {
-        if (rightCount !== 1) {
-          this.$message({
-            message: '单选题答案只能有一个',
-            type: 'warning'
-          })
+      switch (this.postForm.quType ) {
+        case 1:{
+          if (rightCount !== 1) {
+            this.$message({
+              message: '单选题答案只能有一个',
+              type: 'warning'
+            })
 
-          return
+            return
+          }
+          break
         }
+        case 2: {
+          if (rightCount < 2) {
+            this.$message({
+              message: '多选题至少要有两个正确答案！',
+              type: 'warning'
+            })
+
+            return
+          }
+          break;
+        }
+        case 3:{
+          if (rightCount !== 1) {
+            this.$message({
+              message: '判断题只能有一个正确项！',
+              type: 'warning'
+            })
+
+            return
+          }
+          break;
+        }
+
       }
 
-      if (this.postForm.quType === 2) {
-        if (rightCount < 2) {
-          this.$message({
-            message: '多选题至少要有两个正确答案！',
-            type: 'warning'
-          })
 
-          return
-        }
-      }
-
-      if (this.postForm.quType === 3) {
-        if (rightCount !== 1) {
-          this.$message({
-            message: '判断题只能有一个正确项！',
-            type: 'warning'
-          })
-
-          return
-        }
-      }
 
       this.$refs.postForm.validate((valid) => {
         if (!valid) {

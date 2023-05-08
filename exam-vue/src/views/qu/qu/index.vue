@@ -114,6 +114,7 @@ import RepoSelect from '@/components/RepoSelect'
 import { batchAction } from '@/api/qu/repo'
 import { exportExcel, importExcel, importTemplate } from '@/api/qu/qu'
 
+
 export default {
   name: 'QuList',
   components: { RepoSelect, DataTable },
@@ -137,18 +138,24 @@ export default {
         }
       },
 
-      quTypes: [
-        {
-          value: 1,
-          label: '单选题'
-        },
-        {
-          value: 2,
-          label: '多选题'
-        },
+      quTypes: [{
+        value: 1,
+        label: '单选题'
+      }, {
+        value: 2,
+        label: '多选题'
+      },
         {
           value: 3,
           label: '判断题'
+        },
+        {
+          value: 4,
+          label: '填空题'
+        },
+        {
+          value: 5,
+          label: '编程题'
         }
       ],
 
@@ -184,7 +191,7 @@ export default {
         // 删除请求URL
         deleteUrl: '/exam/api/qu/qu/delete',
         // 启用禁用
-        stateUrl: '/exam/api/qu/qu//state',
+        stateUrl: '/exam/api/qu/qu/state',
         // 添加数据路由
         addRoute: 'AddQu'
       }
